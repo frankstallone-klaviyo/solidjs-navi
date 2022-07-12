@@ -12,14 +12,20 @@ export default function Root() {
     <>
       <ErrorBoundary>
         <Suspense>
-          <main class="flex flex-row flex-0 text-gray-700 h-screen">
-            <div class="w-52 bg-slate-200">
-              <nav>
-                <ul className="list-none mx-4 text-sm h-full">
+          <main class="flex flex-row flex-0 text-gray-700 min-h-screen">
+            
+            {/* Nav */}
+            <div class="flex flex-col w-64 bg-background-neutral-subtle-base border-r border-border-neutral-subtle-base">
+              <nav class="flex-grow">
+                
+                <img src="/assets/logo-flag.svg" class="m-6"/>
+
+                <ul className="list-none my-4 text-sm h-full">
                   <For each={mainNav.default} fallback={<div>Loading...</div>}>
                     {(item, index) => 
-                      <li class="my-3">
-                        <NavLink href={item.route}>
+                      <li>
+                        <NavLink href={item.route} className="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered">
+                          <img src={item.icon}/>
                           {item.label}
                         </NavLink>
                       </li>
@@ -27,10 +33,29 @@ export default function Root() {
                   </For>
                 </ul>
               </nav>
+
+              <div class="flex p-4 border-t border-border-neutral-subtle-base gap-2 cursor-pointer hover:bg-background-neutral-subtle-hovered">
+                
+                <img src="/assets/company.svg" />
+
+                <div class="grow">
+                  <p class="text-sm">
+                    Company Name
+                  </p>
+                  <p class="text-xs">
+                    name@email.com
+                  </p>
+                </div>
+
+                <img src="/assets/icons/open.svg" />
+              </div>
             </div>
+
+            {/* Main content */}
             <div class="w-full m-4">
               <Routes />
             </div>
+
           </main>
         </Suspense>
       </ErrorBoundary>

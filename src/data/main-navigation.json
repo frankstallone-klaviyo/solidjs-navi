@@ -1,14 +1,14 @@
 [
     {
         "label": "Home",
-        "icon": "",
+        "icon": "/assets/icons/home.svg",
         "badge": "",
         "route": "/",
         "children": {}
     },
     {
         "label": "Audience",
-        "icon": "",
+        "icon": "/assets/icons/audience.svg",
         "badge": "",
         "route": "#",
         "children": [
@@ -37,7 +37,7 @@
     },
     {
         "label": "Messaging",
-        "icon": "",
+        "icon": "/assets/icons/messaging.svg",
         "badge": "",
         "route": "#",
         "children": [
@@ -59,14 +59,14 @@
     },
     {
         "label": "Flows",
-        "icon": "",
+        "icon": "/assets/icons/flows.svg",
         "badge": "",
         "route": "/",
         "children": {}
     },
     {
         "label": "Content",
-        "icon": "",
+        "icon": "/assets/icons/content.svg",
         "badge": "",
         "route": "/",
         "children": [
@@ -102,7 +102,7 @@
     },
     {
         "label": "Analytics",
-        "icon": "",
+        "icon": "/assets/icons/analytics.svg",
         "badge": "",
         "route": "/",
         "children": [
