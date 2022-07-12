@@ -1,0 +1,92 @@
+[
+    {
+        "label": "Dashboard",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Campaigns",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Flow",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Email Template",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Signup Forms",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "SMS Conversations",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Lists & Segments",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Profiles",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Analytics",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Integrations",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Catalog",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Data Feeds",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Preference Pages",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Brand Library",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    },
+    {
+        "label": "Tags",
+        "icon": "",
+        "badge": "",
+        "children": {}
+    }
+]
