@@ -3,9 +3,9 @@ import { Routes } from "solid-start/root";
 import { ErrorBoundary } from "solid-start/error-boundary";
 import { Suspense } from "solid-js";
 import "./index.css";
-import { For } from "solid-js";
+import { For, Switch, Match } from "solid-js";
 import * as mainNav from "./data/main-navigation";
-import { Link } from "solid-app-router";
+import { NavLink } from "solid-app-router";
 
 export default function Root() {
   return (
@@ -16,14 +16,14 @@ export default function Root() {
             <div class="w-52 bg-slate-200">
               <nav>
                 <ul className="list-none mx-4 text-sm h-full">
-                  <For each={mainNav.default}>
-                    {(item, index) => (
+                  <For each={mainNav.default} fallback={<div>Loading...</div>}>
+                    {(item, index) => 
                       <li class="my-3">
-                        <Link href={item.route}>
+                        <NavLink href={item.route}>
                           {item.label}
-                        </Link>
+                        </NavLink>
                       </li>
-                    )}
+                    }
                   </For>
                 </ul>
               </nav>

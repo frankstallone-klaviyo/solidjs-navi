@@ -10,7 +10,7 @@
         "label": "Audience",
         "icon": "",
         "badge": "",
-        "route": "/audience",
+        "route": "#",
         "children": [
             {
                 "label": "Lists & Segments",
@@ -39,7 +39,7 @@
         "label": "Messaging",
         "icon": "",
         "badge": "",
-        "route": "/messaging",
+        "route": "#",
         "children": [
             {
                 "label": "Campaigns",
