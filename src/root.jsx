@@ -12,13 +12,13 @@ export default function Root() {
     <>
       <ErrorBoundary>
         <Suspense>
-          <main class="flex flex-row text-gray-700 h-max">
+          <main class="flex flex-row flex-0 text-gray-700 h-screen">
             <div class="w-52 bg-slate-200">
               <nav>
-                <ul className="list-none mx-2 text-sm">
+                <ul className="list-none mx-4 text-sm h-full">
                   <For each={mainNav.default}>
                     {(item, index) => (
-                      <li class="my-2">
+                      <li class="my-3">
                         <Link href={item.route}>
                           {item.label}
                         </Link>
