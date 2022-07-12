@@ -1,107 +1,139 @@
 [
     {
-        "label": "Dashboard",
+        "label": "Home",
         "icon": "",
         "badge": "",
         "route": "/",
         "children": {}
     },
     {
-        "label": "Campaigns",
+        "label": "Audience",
         "icon": "",
         "badge": "",
-        "route": "/campaigns",
-        "children": {}
+        "route": "/audience",
+        "children": [
+            {
+                "label": "Lists & Segments",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Profiles",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Signup Forms",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            }
+        ]
     },
     {
-        "label": "Flow",
+        "label": "Messaging",
         "icon": "",
         "badge": "",
-        "route": "/flow",
-        "children": {}
+        "route": "/messaging",
+        "children": [
+            {
+                "label": "Campaigns",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Conversations",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            }
+        ]
     },
     {
-        "label": "Email Template",
+        "label": "Flows",
         "icon": "",
         "badge": "",
         "route": "/",
         "children": {}
     },
     {
-        "label": "Signup Forms",
+        "label": "Content",
         "icon": "",
         "badge": "",
         "route": "/",
-        "children": {}
-    },
-    {
-        "label": "SMS Conversations",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Lists & Segments",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Profiles",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
+        "children": [
+            {
+                "label": "Templates",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Coupons",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Brand Library",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Products",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            }
+        ]
     },
     {
         "label": "Analytics",
         "icon": "",
         "badge": "",
         "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Integrations",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Catalog",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Data Feeds",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Preference Pages",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Brand Library",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
-    },
-    {
-        "label": "Tags",
-        "icon": "",
-        "badge": "",
-        "route": "/",
-        "children": {}
+        "children": [
+            {
+                "label": "Dashboard",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Metrics",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Benchmarks",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            },
+            {
+                "label": "Custom Reports",
+                "icon": "",
+                "badge": "",
+                "route": "/",
+                "children": ""
+            }
+        ]
     }
 ]

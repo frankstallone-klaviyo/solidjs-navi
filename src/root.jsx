@@ -28,7 +28,7 @@ export default function Root() {
                 </ul>
               </nav>
             </div>
-            <div class="w-full">
+            <div class="w-full m-4">
               <Routes />
             </div>
           </main>
