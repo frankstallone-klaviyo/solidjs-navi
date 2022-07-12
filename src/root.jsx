@@ -19,7 +19,7 @@ export default function Root() {
                   <For each={mainNav.default}>
                     {(item, index) => (
                       <li class="my-2">
-                        <Link href="/">
+                        <Link href={item.route}>
                           {item.label}
                         </Link>
                       </li>

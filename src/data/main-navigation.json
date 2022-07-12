@@ -3,90 +3,105 @@
         "label": "Dashboard",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Campaigns",
         "icon": "",
         "badge": "",
+        "route": "/campaigns",
         "children": {}
     },
     {
         "label": "Flow",
         "icon": "",
         "badge": "",
+        "route": "/flow",
         "children": {}
     },
     {
         "label": "Email Template",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Signup Forms",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "SMS Conversations",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Lists & Segments",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Profiles",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Analytics",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Integrations",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Catalog",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Data Feeds",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Preference Pages",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Brand Library",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     },
     {
         "label": "Tags",
         "icon": "",
         "badge": "",
+        "route": "/",
         "children": {}
     }
 ]
