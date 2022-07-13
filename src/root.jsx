@@ -2,7 +2,7 @@
 import { Routes } from "solid-start/root";
 import { ErrorBoundary } from "solid-start/error-boundary";
 import "./index.css";
-import { Suspense, For, createSignal, Switch, Match, useTransition } from "solid-js";
+import { Suspense, For, createSignal, Switch, Match, useTransition, Show } from "solid-js";
 import * as mainNav from "./data/main-navigation";
 import { NavLink } from "solid-app-router";
 
@@ -10,7 +10,11 @@ export default function Root() {
   const [getActive, setActive] = createSignal("Home");
   const [pending, start] = useTransition();
   const updateNav = (item) => () => start(() => setActive(item))
-    
+  // Popping Home off the top
+  mainNav.default.shift();
+
+  const navLinkClasses = "flex m-6 ease-in-out duration-300 hover:underline-offset-4 hover:underline hover:decoration-2";
+
   return (
     <>
       <ErrorBoundary fallback={<div>Something went terribly wrong</div>}>
@@ -27,14 +31,16 @@ export default function Root() {
                     </svg>
                   </NavLink>
 
-                  <ul class="list-none my-4 text-sm h-full" classList={{ 'border-2 border-pink-200': pending()}}>
+                  <ul class="list-none my-4 text-xl h-full" classList={{ 'border-2 border-pink-200': pending()}}>
                   <Switch fallback={<div>Not found</div>}>
                     <Match when={getActive() === "Home"}>
+                      <Show when={getActive() !== "Home"}>
+                        <h2 class="text-3xl mx-4">{getActive()}</h2>
+                      </Show>
                       <For each={mainNav.default} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href={item.route} onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
-                              <img src={item.icon}/>
+                            <NavLink href={item.route} onClick={updateNav(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -42,13 +48,16 @@ export default function Root() {
                       </For>
                     </Match>
                     <Match when={getActive() === "Audience"}>
-                      <li class="my-3">
-                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      <li class="mt-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex mx-3 px-3 ease-in-out duration-300">← Home</NavLink>
                       </li>
+                      <Show when={getActive() !== "Home"}>
+                        <h2 class="text-3xl mx-4">{getActive()}</h2>
+                      </Show>
                       <For each={mainNav.default[1].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -56,13 +65,16 @@ export default function Root() {
                       </For>
                     </Match>
                     <Match when={getActive() === "Messaging"}>
-                      <li class="my-3">
-                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      <li class="mt-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 m-6  ease-in-out duration-300">← Home</NavLink>
                       </li>
+                      <Show when={getActive() !== "Home"}>
+                        <h2 class="text-3xl mx-4">{getActive()}</h2>
+                      </Show>
                       <For each={mainNav.default[2].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -70,18 +82,24 @@ export default function Root() {
                       </For>
                     </Match>
                     <Match when={getActive() === "Flows"}>
-                      <li class="my-3">
-                        <NavLink href="/" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      <li class="mt-3">
+                        <NavLink href="/" onClick={updateNav("Home")} class="flex gap-2 m-6  ease-in-out duration-300">← Home</NavLink>
                       </li>
+                      <Show when={getActive() !== "Home"}>
+                        <h2 class="text-3xl mx-4">{getActive()}</h2>
+                      </Show>
                     </Match>
                     <Match when={getActive() === "Content"}>
-                      <li class="my-3">
-                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      <li class="mt-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 m-6  ease-in-out duration-300">← Home</NavLink>
                       </li>
+                      <Show when={getActive() !== "Home"}>
+                        <h2 class="text-3xl mx-4">{getActive()}</h2>
+                      </Show>
                       <For each={mainNav.default[4].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -89,13 +107,16 @@ export default function Root() {
                       </For>
                     </Match>
                     <Match when={getActive() === "Analytics"}>
-                      <li class="my-3">
-                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      <li class="mt-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 m-6  ease-in-out duration-300">← Home</NavLink>
                       </li>
+                      <Show when={getActive() !== "Home"}>
+                        <h2 class="text-3xl mx-4">{getActive()}</h2>
+                      </Show>
                       <For each={mainNav.default[5].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -106,7 +127,7 @@ export default function Root() {
                   </ul>
                 </nav>
 
-                <div class="flex p-4 border-t border-border-neutral-subtle-base gap-2 cursor-pointer hover:bg-background-neutral-subtle-hovered">
+                <div class="flex p-4 border-t border-border-neutral-subtle-base gap-2 cursor-pointer ">
                   <img src="/assets/company.svg" />
 
                   <div class="grow">
