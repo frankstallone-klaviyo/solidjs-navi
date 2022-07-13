@@ -8,6 +8,9 @@ import { NavLink } from "solid-app-router";
 
 export default function Root() {
   const [getActive, setActive] = createSignal("Home");
+  const [getMenu, setMenu] = createSignal(false);
+
+  const toggle = () => setMenu(!getMenu());
 
   // Setting up useTransition()
   const [pending, start] = useTransition();
@@ -27,15 +30,15 @@ export default function Root() {
             <main class="flex flex-row flex-0 text-gray-700 h-screen">
               
               {/* Nav */}
-              <div class="flex flex-col w-64 bg-background-neutral-subtle-base border-r border-border-neutral-subtle-base">
-                <nav class="flex-grow">
+              <div class="flex flex-col w-64 bg-white">
+                <nav class="flex-grow w-64">
 
                   <NavLink href="#" onClick={() => setActive("Home")}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="m-6">
                       <path d="M22 19H2V5H22L18.0334 12L22 19Z" fill="#232426"/>
                     </svg>
                   </NavLink>
-                  
+
                   {/* the classList on the below ul was supposed to be a dyanmic way to show the transition but it never shows */}
                   <ul class="list-none my-4 text-xl h-full" classList={{ 'border-2 border-pink-200': pending()}}>
                   <Switch fallback={<div>Not found</div>}>
@@ -134,19 +137,26 @@ export default function Root() {
                   </ul>
                 </nav>
 
-                <div class="flex p-4 border-t border-border-neutral-subtle-base gap-2 cursor-pointer ">
-                  <img src="/assets/company.svg" />
+                <div className="relative">
+                  <button type="button" class="flex p-4 gap-2 cursor-pointer relative w-full" onClick={toggle}>
+                    <img src="/assets/company.svg" />
 
-                  <div class="grow">
-                    <p class="text-sm">
-                      Company Name
-                    </p>
-                    <p class="text-xs">
-                      name@email.com
-                    </p>
-                  </div>
+                    <div class="grow">
+                      <p class="text-sm">
+                        Company Name
+                      </p>
+                      <p class="text-xs">
+                        name@email.com
+                      </p>
+                    </div>
 
-                  <img src="/assets/icons/open.svg" />
+                    <img src="/assets/icons/open.svg" />
+                  </button>
+                  <Show when={getMenu()}>
+                    <div class="absolute -top-52 left-64 border border-border-neutral-subtle-base rounded-xl bg-white w-64 h-64 text-left shadow-xl p-6">
+                      Theresa Webb
+                    </div>
+                  </Show>
                 </div>
               </div>
 
