@@ -8,11 +8,16 @@ import { NavLink } from "solid-app-router";
 
 export default function Root() {
   const [getActive, setActive] = createSignal("Home");
+
+  // Setting up useTransition()
   const [pending, start] = useTransition();
+  // Function to replace setActive() on the NavLink onClick() to kick off transitions
   const updateNav = (item) => () => start(() => setActive(item))
+  
   // Popping Home off the top
   mainNav.default.shift();
 
+  // NavLink classes abstracted here so we can change them all in one place
   const navLinkClasses = "flex m-6 ease-in-out duration-300 hover:underline-offset-4 hover:underline hover:decoration-2";
 
   return (
@@ -30,7 +35,8 @@ export default function Root() {
                       <path d="M22 19H2V5H22L18.0334 12L22 19Z" fill="#232426"/>
                     </svg>
                   </NavLink>
-
+                  
+                  {/* the classList on the below ul was supposed to be a dyanmic way to show the transition but it never shows */}
                   <ul class="list-none my-4 text-xl h-full" classList={{ 'border-2 border-pink-200': pending()}}>
                   <Switch fallback={<div>Not found</div>}>
                     <Match when={getActive() === "Home"}>
@@ -40,6 +46,7 @@ export default function Root() {
                       <For each={mainNav.default} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
+                            {/* Example of updateNave being used onClick instead of setActive() */}
                             <NavLink href={item.route} onClick={updateNav(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
