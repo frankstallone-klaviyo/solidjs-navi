@@ -1,16 +1,15 @@
 // @refresh reload
 import { Routes } from "solid-start/root";
 import { ErrorBoundary } from "solid-start/error-boundary";
-import { Suspense } from "solid-js";
 import "./index.css";
-import { For, createSignal, Switch, Match } from "solid-js";
+import { Suspense, For, createSignal, Switch, Match, useTransition, createResource } from "solid-js";
 import * as mainNav from "./data/main-navigation";
 import { NavLink } from "solid-app-router";
 
-
 export default function Root() {
   const [active, setActive] = createSignal("Home");
-  console.log(mainNav.default)
+  const [pending, start] = useTransition();
+  const updateNav = (item) => () => start(() => setActive(item))
     
   return (
     <>
@@ -22,32 +21,36 @@ export default function Root() {
               <div class="flex flex-col w-64 bg-background-neutral-subtle-base border-r border-border-neutral-subtle-base">
                 <nav class="flex-grow">
 
-                  <img src="/assets/logo-flag.svg" class="m-6"/>
+                  <NavLink href="#" onClick={() => setActive("Home")}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="m-6">
+                      <path d="M22 19H2V5H22L18.0334 12L22 19Z" fill="#232426"/>
+                    </svg>
+                  </NavLink>
 
-                  <ul className="list-none my-4 text-sm h-full">
+                  <ul class="list-none my-4 text-sm h-full" classList={{ 'border-2 border-pink-200': pending()}}>
                   <Switch fallback={<div>Not found</div>}>
                     <Match when={active() === "Home" | "Flows"}>
                       <For each={mainNav.default} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <a href="#" onClick={() => setActive(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered">
+                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
                               <img src={item.icon}/>
                               {item.label}
-                            </a>
+                            </NavLink>
                           </li>
                         }
                       </For>
                     </Match>
                     <Match when={active() === "Audience"}>
                       <li class="my-3">
-                        <a href="#" onClick={() => setActive("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered">← Home</a>
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
                       </li>
                       <For each={mainNav.default[1].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <a href="#" onClick={() => setActive(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered">
+                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
                               {item.label}
-                            </a>
+                            </NavLink>
                           </li>
                         }
                       </For>
