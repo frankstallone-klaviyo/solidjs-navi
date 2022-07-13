@@ -27,8 +27,6 @@ export default function Root() {
                     </svg>
                   </NavLink>
 
-                  <small class="text-gray-400 text-xs mx-4">Current active signal {getActive()}</small>
-
                   <ul class="list-none my-4 text-sm h-full" classList={{ 'border-2 border-pink-200': pending()}}>
                   <Switch fallback={<div>Not found</div>}>
                     <Match when={getActive() === "Home"}>
