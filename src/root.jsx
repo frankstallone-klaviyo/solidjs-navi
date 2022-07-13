@@ -7,7 +7,7 @@ import * as mainNav from "./data/main-navigation";
 import { NavLink } from "solid-app-router";
 
 export default function Root() {
-  const [active, setActive] = createSignal("Home");
+  const [getActive, setActive] = createSignal("Home");
   const [pending, start] = useTransition();
   const updateNav = (item) => () => start(() => setActive(item))
     
@@ -27,13 +27,15 @@ export default function Root() {
                     </svg>
                   </NavLink>
 
+                  <small class="text-gray-400 text-xs mx-4">Current active signal {getActive()}</small>
+
                   <ul class="list-none my-4 text-sm h-full" classList={{ 'border-2 border-pink-200': pending()}}>
                   <Switch fallback={<div>Not found</div>}>
-                    <Match when={active() === "Home" | "Flows"}>
+                    <Match when={getActive() === "Home"}>
                       <For each={mainNav.default} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                            <NavLink href={item.route} onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
                               <img src={item.icon}/>
                               {item.label}
                             </NavLink>
@@ -41,11 +43,67 @@ export default function Root() {
                         }
                       </For>
                     </Match>
-                    <Match when={active() === "Audience"}>
+                    <Match when={getActive() === "Audience"}>
                       <li class="my-3">
                         <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
                       </li>
                       <For each={mainNav.default[1].children} fallback={<div>Loading...</div>}>
+                        {(item, index) => 
+                          <li>
+                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                              {item.label}
+                            </NavLink>
+                          </li>
+                        }
+                      </For>
+                    </Match>
+                    <Match when={getActive() === "Messaging"}>
+                      <li class="my-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      </li>
+                      <For each={mainNav.default[2].children} fallback={<div>Loading...</div>}>
+                        {(item, index) => 
+                          <li>
+                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                              {item.label}
+                            </NavLink>
+                          </li>
+                        }
+                      </For>
+                    </Match>
+                    <Match when={getActive() === "Flows"}>
+                      <li class="my-3">
+                        <NavLink href="/" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      </li>
+                      {/* <For each={mainNav.default} fallback={<div>Loading...</div>}>
+                        {(item, index) => 
+                          <li>
+                            <NavLink href={item.route} onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                              {item.label}
+                            </NavLink>
+                          </li>
+                        }
+                      </For> */}
+                    </Match>
+                    <Match when={getActive() === "Content"}>
+                      <li class="my-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      </li>
+                      <For each={mainNav.default[4].children} fallback={<div>Loading...</div>}>
+                        {(item, index) => 
+                          <li>
+                            <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
+                              {item.label}
+                            </NavLink>
+                          </li>
+                        }
+                      </For>
+                    </Match>
+                    <Match when={getActive() === "Analytics"}>
+                      <li class="my-3">
+                        <NavLink href="#" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
+                      </li>
+                      <For each={mainNav.default[5].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
                             <NavLink href="#" onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">

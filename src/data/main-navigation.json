@@ -16,21 +16,21 @@
                 "label": "Lists & Segments",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Profiles",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Signup Forms",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             }
         ]
@@ -45,14 +45,14 @@
                 "label": "Campaigns",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Conversations",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             }
         ]
@@ -61,41 +61,41 @@
         "label": "Flows",
         "icon": "/assets/icons/flows.svg",
         "badge": "",
-        "route": "/",
+        "route": "/flows",
         "children": {}
     },
     {
         "label": "Content",
         "icon": "/assets/icons/content.svg",
         "badge": "",
-        "route": "/",
+        "route": "#",
         "children": [
             {
                 "label": "Templates",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Coupons",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Brand Library",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Products",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             }
         ]
@@ -104,34 +104,34 @@
         "label": "Analytics",
         "icon": "/assets/icons/analytics.svg",
         "badge": "",
-        "route": "/",
+        "route": "#",
         "children": [
             {
                 "label": "Dashboard",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Metrics",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Benchmarks",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             },
             {
                 "label": "Custom Reports",
                 "icon": "",
                 "badge": "",
-                "route": "/",
+                "route": "#",
                 "children": ""
             }
         ]
