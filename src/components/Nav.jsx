@@ -5,11 +5,25 @@ export default function Nav() {
     // NavLink classes abstracted here so we can change them all in one place
     const navLinkClasses = "flex m-6 ease-in-out duration-300 hover:underline-offset-4 hover:underline hover:decoration-2";
     
+    const getCurrentPath = () => {
+        if (location.pathname === "/"){
+            return [];
+        } else {
+            return location.pathname.split("/").filter(segment => segment !== "");
+        }
+    };
+
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [getPath, setPath] = createSignal([]);
-    const [getActive, setActive] = createSignal("Home");
+    const [getPath, setPath] = createSignal(getCurrentPath());
+    createEffect(() => {
+        setPath(getCurrentPath());
+    });
+    
+
+    console.log(location);
+
 
     const navigateToPage = (newPath) => {
         const updatedPath = getPath();
@@ -24,7 +38,7 @@ export default function Nav() {
             setPath(updatedPath);
         }
 
-        console.log("PATH", getPath());
+        // Navigate to the page
         navigate("/" + getPath().join("/"));
     };
     
