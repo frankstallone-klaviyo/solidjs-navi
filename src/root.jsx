@@ -2,7 +2,7 @@
 import { Routes } from "solid-start/root";
 import { ErrorBoundary } from "solid-start/error-boundary";
 import "./index.css";
-import { Suspense, For, createSignal, Switch, Match, useTransition, createResource } from "solid-js";
+import { Suspense, For, createSignal, Switch, Match, useTransition } from "solid-js";
 import * as mainNav from "./data/main-navigation";
 import { NavLink } from "solid-app-router";
 
@@ -73,15 +73,6 @@ export default function Root() {
                       <li class="my-3">
                         <NavLink href="/" onClick={updateNav("Home")} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">← Home</NavLink>
                       </li>
-                      {/* <For each={mainNav.default} fallback={<div>Loading...</div>}>
-                        {(item, index) => 
-                          <li>
-                            <NavLink href={item.route} onClick={updateNav(item.label)} class="flex gap-2 mx-3 p-3 rounded-lg hover:bg-background-neutral-subtle-hovered ease-in-out duration-300">
-                              {item.label}
-                            </NavLink>
-                          </li>
-                        }
-                      </For> */}
                     </Match>
                     <Match when={getActive() === "Content"}>
                       <li class="my-3">
