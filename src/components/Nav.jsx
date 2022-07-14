@@ -5,7 +5,7 @@ import { render } from "solid-js/web";
 export default function Nav() {
     
     // NavLink classes abstracted here so we can change them all in one place
-    const navLinkClasses = "flex m-6 ease-in-out duration-300 hover:underline-offset-4 hover:underline hover:decoration-2";
+    const navLinkClasses = "flex ease-in-out duration-300 hover:underline-offset-4 hover:underline hover:decoration-2";
 
     const getCurrentPath = () => {
         if (location.pathname === "/") {
@@ -85,35 +85,37 @@ export default function Nav() {
 
     return (
         <div id="sidebar" class={`relative flex flex-row justify-start items-start transition-transform`} style={{ transform: `translateX(${getTranslate()}px)` }}>
-                <ul data-path="/" class="shrink-0 w-full list-none my-4 text-xl">
-                    <li>
+                {/* Home */}
+                <ul data-path="/" class="slidein shrink-0 w-full list-none my-4 text-xl">
+                    <li class="px-6 py-3">
                         <a href="#" class={navLinkClasses}>
                             Audience
                         </a>
                     </li>
-                    <li>
+                    <li class="px-6 py-3">
                         <a href="#" class={navLinkClasses}>
                             Messaging
                         </a>
                     </li>
-                    <li>
+                    <li class="px-6 py-3">
                         <a href="flows" class={navLinkClasses}>
                             Flows
                         </a>
                     </li>
-                    <li>
+                    <li class="px-6 py-3">
                         <a href="#" class={navLinkClasses}>
                             Content
                         </a>
                     </li>
-                    <li>
+                    <li class="px-6 py-3">
                         <a href="#" class={navLinkClasses}>
                             Analytics
                         </a>
                     </li>
                 </ul>
             
-                <div data-path="/flows" class="shrink-0 w-full px-6 flex flex-col gap-4">
+                {/* Flows */}
+                <div data-path="/flows" class="slidein shrink-0 w-full px-6 flex flex-col gap-4">
                     <div>
                         <a href="/" class="">
                             ← Home
@@ -146,7 +148,7 @@ export default function Nav() {
                         {getTextInputHtml(false, "No tags selected")}
                     </label>
 
-                    <div class="flex flex-col gap-6 my-8">
+                    <div class="flex flex-col gap-6 my-8 slidein">
                         {getFlowHtml(true, "/flows/view", "Abandoned Cart", "After someone Checkout Started. Only include someone if has placed Order zero times since starting this flow.")}
                         {getFlowHtml(false, "/flows/view", "Post-Purchase Followup - Order Count Split", "After someone placed an order.")}
                         {getFlowHtml(true, "/flows/view", "Price Drop Notification - Standard (Email or SMS)", "After someone Checkout Started. Only include someone if has placed Order zero times since starting this flow.")}
@@ -154,7 +156,8 @@ export default function Nav() {
                     </div>
                 </div>
 
-                <div data-path="/flows/view" class="shrink-0 w-full px-6 flex flex-col gap-4">
+                {/* Flows/view */}
+                <div data-path="/flows/view" class="slidein shrink-0 w-full px-6 flex flex-col gap-4">
                     <div>
                         <a href="/flows" class="">
                             ← Flows
@@ -164,13 +167,68 @@ export default function Nav() {
 
                     {getTextInputHtml(true, "Search messages")}
 
-                    <div class="flex flex-col gap-6 my-8">
-                        {getFlowHtml(true, "/flows/view", "New Customer: Thank You", "Welcome to the {{ organization.name|title }} Family!")}
-                        {getFlowHtml(true, "/flows/view", "New Customer: 2nd Purchase Incentive", "A token of our appreciation")}
-                        {getFlowHtml(true, "/flows/view", "Repeat Customer: Thank You", "Good choice!")}
-                        {getFlowHtml(true, "/flows/view", "Loyal Customer: Cross-Sell + Discount", "You might also like...")}
-                        {getFlowHtml(true, "/flows/view", "Repeat Customer: Review Request", "So, what’d you think?")}
+                    <div class="flex flex-col gap-6 my-8 slidein">
+                        {getFlowHtml(true, "/flows/view/email", "New Customer: Thank You", "Welcome to the {{ organization.name|title }} Family!")}
+                        {getFlowHtml(true, "/flows/view/email", "New Customer: 2nd Purchase Incentive", "A token of our appreciation")}
+                        {getFlowHtml(true, "/flows/view/email", "Repeat Customer: Thank You", "Good choice!")}
+                        {getFlowHtml(true, "/flows/view/email", "Loyal Customer: Cross-Sell + Discount", "You might also like...")}
+                        {getFlowHtml(true, "/flows/view/email", "Repeat Customer: Review Request", "So, what’d you think?")}
                     </div>
+                </div>
+
+                {/* Flows/view/email */}
+                <div data-path="/flows/view/email" class="slidein shrink-0 w-full px-6 flex flex-col gap-4">
+                    <div>
+                        <a href="/flows/view" class="">
+                            ← Flow Details
+                        </a>
+                        <h1 class="text-4xl">Flow Email</h1>
+                    </div>
+
+                    <div class="flex flex-col gap-6 my-8 slidein">
+                        <a href="/flows/view/email/analytics">
+                            <img src="/assets/Key inputs-1.svg" />
+                        </a>
+                        <a href="/flows/view/email/analytics">
+                            <img src="/assets/Key inputs-2.svg" />
+                        </a>
+                        <a href="/flows/view/email/analytics">
+                            <img src="/assets/Key inputs.svg" />
+                        </a>
+                    </div>
+                </div>
+
+                {/* Flows/view/email/analytics */}
+                <div data-path="/flows/view/email/analytics" class="slidein shrink-0 w-full px-6 flex flex-col gap-4">
+                    <div>
+                        <a href="/flows/view/email" class="">
+                            ← Flow Email
+                        </a>
+                        <h1 class="text-4xl">Flow Analytics</h1>
+                    </div>
+
+                    <ul class="slidein shrink-0 w-full list-none my-4 text-xl">
+                    <li class="py-3">
+                        <a href="#" class={navLinkClasses}>
+                            Recipient Activity
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="#" class={navLinkClasses}>
+                            Link Activity
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="flows" class={navLinkClasses}>
+                            Advanced Reports
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="#" class={navLinkClasses}>
+                            Watch Live
+                        </a>
+                    </li>
+                </ul>
                 </div>
         </div>
     );
