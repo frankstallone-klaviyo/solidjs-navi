@@ -11,11 +11,12 @@ export default function Root() {
   const [getMenu, setMenu] = createSignal(false);
 
   const toggle = () => setMenu(!getMenu());
+  const slowClick = (item) => setTimeout(updateNav(item), 1000)
 
   // Setting up useTransition()
   const [pending, start] = useTransition();
   // Function to replace setActive() on the NavLink onClick() to kick off transitions
-  const updateNav = (item) => () => start(() => setActive(item))
+  const updateNav = (item) => () => start(() => setActive(item));
   
   // Popping Home off the top
   mainNav.default.shift();
@@ -50,7 +51,7 @@ export default function Root() {
                         {(item, index) => 
                           <li>
                             {/* Example of updateNave being used onClick instead of setActive() */}
-                            <NavLink href={item.route} onClick={updateNav(item.label)} class={navLinkClasses}>
+                            <NavLink href={item.route} onClick={() => slowClick(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -67,7 +68,7 @@ export default function Root() {
                       <For each={mainNav.default[1].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
+                            <NavLink href="#" onClick={() => slowClick(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -84,7 +85,7 @@ export default function Root() {
                       <For each={mainNav.default[2].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
+                            <NavLink href="#" onClick={() => slowClick(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -109,7 +110,7 @@ export default function Root() {
                       <For each={mainNav.default[4].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
+                            <NavLink href="#" onClick={() => slowClick(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
@@ -126,7 +127,7 @@ export default function Root() {
                       <For each={mainNav.default[5].children} fallback={<div>Loading...</div>}>
                         {(item, index) => 
                           <li>
-                            <NavLink href="#" onClick={updateNav(item.label)} class={navLinkClasses}>
+                            <NavLink href="#" onClick={() => slowClick(item.label)} class={navLinkClasses}>
                               {item.label}
                             </NavLink>
                           </li>
