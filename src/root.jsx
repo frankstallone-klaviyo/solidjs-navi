@@ -35,7 +35,7 @@ export default function Root() {
 								</nav>
 
 								<div className="relative">
-									<button type="button" class="flex p-4 gap-2 items-center cursor-pointer relative w-full" onClick={toggle}>
+									<a href="/settings" type="button" class="flex p-4 gap-2 items-center cursor-pointer relative w-full" >
 										<img src="/assets/company.svg" />
 
 										<div class="grow text-left">
@@ -48,7 +48,7 @@ export default function Root() {
 										</div>
 
 										<img src="/assets/icons/open.svg" />
-									</button>
+									</a>
 									<Show when={getMenu()}>
 										<div class="absolute -top-52 left-64 border border-border-neutral-subtle-base rounded-xl bg-white w-64 h-64 text-left shadow-xl p-6">
 											Theresa Webb

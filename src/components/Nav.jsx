@@ -230,6 +230,54 @@ export default function Nav() {
                     </li>
                 </ul>
                 </div>
+
+                {/* Settings */}
+                <div data-path="/settings" class="slidein shrink-0 w-full px-6 flex flex-col gap-4">
+                    <div>
+                        <a href="/" class="">
+                            ← Home
+                        </a>
+                        <h1 class="text-4xl">Settings</h1>
+                    </div>
+
+                    <ul class="slidein shrink-0 w-full list-none my-4 text-xl">
+                    <li class="py-3">
+                        <a href="/settings/personal" class={navLinkClasses}>
+                            Personal
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="/settings/organization" class={navLinkClasses}>
+                            Organization
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="/settings/billing" class={navLinkClasses}>
+                            Billing
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="/settings/users" class={navLinkClasses}>
+                            Users
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="/settings/general" class={navLinkClasses}>
+                            General Settings
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="/settings/email" class={navLinkClasses}>
+                            Email Settings
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="/settings/sms" class={navLinkClasses}>
+                            SMS Settings
+                        </a>
+                    </li>
+                </ul>
+                </div>
         </div>
     );
 }

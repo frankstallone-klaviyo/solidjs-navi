@@ -7,8 +7,9 @@ window.onload = function() {
     var observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (previousPage != window.location.pathname) {
-                updateNav()
+                console.log(previousPage, window.location.pathname)
                 previousPage = window.location.pathname;
+                updateNav()
                 /* Changed ! your code here */
             }
         });
@@ -19,7 +20,7 @@ window.onload = function() {
         subtree: true
     };
     
-    observer.observe(bodyList, config);
+    observer.observe(document, config);
 
     // Hide all sidebars
     [...sidebar.children].forEach(child => child.classList.add("hidden"));
@@ -31,8 +32,15 @@ function updateNav(){
     window.setTimeout(() => {
         const currentPage = window.location.pathname;
         
-        let previousSidebar = previousPage ? sidebar.querySelector(`[data-path="${previousPage}"]`) : null;
+        let previousSidebar = sidebar.querySelector(`[data-path="${previousPage}"]`);
         let currentSidebar = sidebar.querySelector(`[data-path="${currentPage}"]`);
+
+        console.log(previousSidebar, currentSidebar);
+
+        // Don't do anything if the sidebars are the same
+        if (previousSidebar === currentSidebar){
+            return;
+        }
 
         if (!previousSidebar){
             // There's no previous page, so no transition needed.
@@ -44,7 +52,6 @@ function updateNav(){
             let currentIndex = getPathDepth(currentPage);
 
             console.log(previousIndex, currentIndex);
-
             
             if (previousIndex > currentIndex){
                 console.log("Going back");
